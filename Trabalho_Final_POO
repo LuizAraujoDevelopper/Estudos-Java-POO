@@ -1,0 +1,318 @@
+package classes;
+
+// Luiz Guilherme RGA:202319070351
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+//main
+public class Main {
+ public static void main(String[] args) {
+	 
+     // Add autores
+     Autor autor1 = new Autor("Calupsito", "calups", "RJ");
+     Autor autor2 = new Autor("John Smith", "jhon.smith@example.com", "Academia de Letras");
+     Autor autor3 = new Autor("Jane Doe", "jane.doe@example.com", "UFMT");
+     Autor autor4 = new Autor("MacLove", "MacLove@example.com", "Fundação das Histórias");
+     Autor autor5 = new Autor("Akira Toriama", "AkiraDBZ@example.com", "Associação Cultural Japonesa");
+     Autor autor6 = new Autor("Isabel Olvieira", "isabel.oliveira@example.com", "Escola de Narrativa");
+     Autor autor7 = new Autor("Patricia Lima", "patricia.lima@example.com", "USP");
+     Autor autor8 = new Autor("Clives Staples", "clivestaples%", "Centro de Literatura Contemporânea");
+     Autor autor9 = new Autor("Marta Costa", "marta.costa@example.com", "Instituto de Poesia");
+     Autor autor10 = new Autor("Machado de Assis", "machado.assis@example.com", "Instituto de Língua Portuguesa");
+     Autor autor11 = new Autor("Jane Silva", "jane.silva@example.com", "UFMG");
+     Autor autor12 = new Autor("Kevin Bhor", "kevin.bhor@example.com", "ITA");
+     
+
+     // Add livro físico e autor
+     Livro_fisico Livro_fisico1 = new Livro_fisico("Fquerido", "ISBN10", 15.00);
+     Livro_fisico Livro_fisico2 = new Livro_fisico("Harry Potter", "9780439554930", 160.00);
+     Livro_fisico Livro_fisico3 = new Livro_fisico("Dom Casmuro", "9786586490084", 94.90);
+     Livro_fisico Livro_fisico4 = new Livro_fisico("Liberdade do Tempo", "46485487923", 47.80);
+     Livro_fisico Livro_fisico5 = new Livro_fisico("Imperio Romano: A Queda", "60485488024", 50.80);
+     Livro_fisico Livro_fisico6 = new Livro_fisico("O Guerreiro Samurai", "43012487923", 60.00);
+     
+     
+     Livro_fisico1.add_Autor(autor8);
+     Livro_fisico2.add_Autor(autor1);
+     Livro_fisico3.add_Autor(autor10);
+     Livro_fisico4.add_Autor(autor8);
+     Livro_fisico5.add_Autor(autor4);
+     Livro_fisico6.add_Autor(autor5);
+     
+     
+     
+     // Add Ebook e autor
+     Ebook ebook1 = new Ebook("Egrilo", "ISBNE20", 30.35);   
+     Ebook ebook2 = new Ebook("Construa Relacionamento Mais Fortes ", "98742312126", 25.00);
+     Ebook ebook3 = new Ebook("Descubra o Seu Potencial", "4364872987", 30.50);
+     Ebook ebook4 = new Ebook("Aprendendo a fazer Programar com o C#", "7064872126", 40.09);
+     Ebook ebook5 = new Ebook("Cultura Brasileira", "2064872120", 15.00);
+     Ebook ebook6 = new Ebook("Domina a Lógica da Vida", "7764872195", 22.60);
+     
+     
+     
+     ebook1.add_Autor(autor3);
+     ebook2.add_Autor(autor6);
+     ebook3.add_Autor(autor7);
+     ebook4.add_Autor(autor6);
+     ebook5.add_Autor(autor9);
+     ebook6.add_Autor(autor12);
+
+     // Add biblioteca e livros
+     Biblioteca biblioteca = new Biblioteca();
+     biblioteca.add_Livro_fisico(Livro_fisico1);
+     biblioteca.add_Livro_fisico(Livro_fisico2);
+     biblioteca.add_Livro_fisico(Livro_fisico3);
+     biblioteca.add_Livro_fisico(Livro_fisico4);
+     biblioteca.add_Livro_fisico(Livro_fisico5);
+     biblioteca.add_Livro_fisico(Livro_fisico6);
+     
+     biblioteca.add_Livro_Ebook(ebook1);
+     biblioteca.add_Livro_Ebook(ebook2);
+     biblioteca.add_Livro_Ebook(ebook3);
+     biblioteca.add_Livro_Ebook(ebook4);
+     biblioteca.add_Livro_Ebook(ebook5);
+     biblioteca.add_Livro_Ebook(ebook6);
+
+     // Emprestando e devolvendo livros
+     biblioteca.emprestarLivro_fisico(Livro_fisico1);
+     biblioteca.emprestarLivro_fisico(Livro_fisico2);
+     biblioteca.emprestarLivro_fisico(Livro_fisico3);
+     
+     System.out.println("EMPRESTADOS >>>>");
+     biblioteca.mostrar_LivrosEmprestados();
+     System.out.println("\nLIVRO DEVOLVIDO >>>>");
+     biblioteca.devolverLivro(Livro_fisico1);
+
+     System.out.println("\nTODOS LIVROS FISICOS >>>>");
+     
+     // Imprimindo todos os livros fisicos da biblioteca
+     biblioteca.mostrar_Livros();
+     
+     System.out.println("\nTODOS OS EBOOKS >>>>\n");
+  // Imprimindo todos os ebooks da biblioteca
+     biblioteca.mostrar_Ebook();
+
+     // Add orçamentos e add pedidos
+     Orcamento orcamento = new Orcamento();
+     orcamento.add_Livro_fisicoOrc(Livro_fisico1);
+     orcamento.add_LivroEbookOrc(ebook1);
+     orcamento.add_LivroEbookOrc(ebook4);
+     
+     // Pedidos de compra
+     System.out.println("\nORÇAMENTO >>>>\n");
+     orcamento.mostrar_Pedidos();
+ }
+}
+
+//Interfaces
+
+//valida
+interface Validar {
+	boolean validar_email(String email);
+}
+
+//Compra
+interface Compra {
+	double calcular_Preco();
+}
+
+//Autor
+class Autor implements Validar {
+	
+ private String nome;
+ private String email;
+ private String instituicao;
+	
+ public Autor(String nome, String email, String instituicao) {
+ 	if(validar_email(email)) {
+ 		this.nome = nome;
+         this.email = email;
+         this.instituicao = instituicao;
+ 	}
+ 	else {
+ 		System.out.println("Favor informe um e-mail válido.");
+ 	}
+ }
+	
+ @Override
+ public boolean validar_email(String email) {
+     String emailRegex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+     return email.matches(emailRegex);
+     
+ }
+ @Override
+ public String toString() {
+     return "Autor: " + nome;
+ }
+
+}
+
+//classes
+
+//biblioteca
+
+class Biblioteca {
+ private ArrayList<Livro_fisico> livros;
+ private ArrayList<Ebook> Ebooks;
+ private ArrayList<Livro_fisico> emprestados;
+ private ArrayList<Ebook> EbooksEmprestados;
+
+ public Biblioteca() {
+     this.livros = new ArrayList<>();
+     this.Ebooks = new ArrayList<>();
+     this.emprestados = new ArrayList<>();
+ }
+
+ public void add_Livro_fisico(Livro_fisico livro) {
+     this.livros.add(livro);
+ }
+ public void add_Livro_Ebook(Ebook Ebook) {
+     this.Ebooks.add(Ebook);
+ }
+
+ public void emprestarLivro_fisico(Livro_fisico livro) {
+     if (this.livros.contains(livro) && !this.emprestados.contains(livro)) {
+         this.emprestados.add(livro);
+     }
+ }
+ public void emprestarEbook(Ebook Ebook) {
+     if (this.Ebooks.contains(Ebook) && !this.EbooksEmprestados.contains(Ebook)) {
+         this.EbooksEmprestados.add(Ebook);
+     }
+ }
+
+ public void devolverLivro(Livro livro) {
+     this.emprestados.remove(livro);
+ }
+
+ public void mostrar_Livros() {
+     Collections.sort(this.livros, (l1, l2) -> l1.titulo.compareTo(l2.titulo));
+     for (Livro livro : this.livros) {
+         System.out.println(livro);
+     }
+ }
+ 
+ public void mostrar_Ebook() {
+     Collections.sort(this.livros, (l1, l2) -> l1.titulo.compareTo(l2.titulo));
+     for (Ebook ebook : this.Ebooks) {
+         System.out.println(ebook);
+     }
+ }
+ 
+ public void mostrar_LivrosEmprestados() {
+ 	for(Livro emprestado: this.emprestados) {
+ 		System.out.println(emprestado);
+ 	}
+ }
+}
+
+//Ebook
+class Ebook extends Livro implements Comparable<Ebook> {
+ private double preco;
+ 
+
+ public Ebook(String titulo, String isbn, double preco) {
+     super(titulo, isbn);
+     this.preco = preco;
+ }
+
+ @Override
+ public double getPreco() {
+     return this.preco;
+ }
+
+ @Override
+ public int compareTo(Ebook outro) {
+     return this.titulo.compareTo(outro.titulo);
+ }
+
+ @Override
+ public String toString() {
+     return "Ebook: " + titulo + ", ISBN: " + isbn + ", Preço: " + preco;
+ }
+}
+
+//livro
+
+
+abstract class Livro {
+	protected String titulo;
+ protected String isbn;
+ protected ArrayList<Autor> autores;
+ 
+ public Livro(String titulo, String isbn) {
+ 	this.titulo= titulo;
+ 	this.isbn = isbn;
+ 	this.autores = new ArrayList<>()  ;  
+ }
+ 
+ public void add_Autor(Autor autor) {
+     this.autores.add(autor);
+ }
+ 
+ public abstract double getPreco();
+ 
+}
+
+//Livro_fisico
+class Livro_fisico extends Livro implements Comparable<Livro_fisico> {
+ private double preco;
+
+ public Livro_fisico(String titulo, String isbn, double preco) {
+     super(titulo, isbn);
+     this.preco = preco;
+ }
+
+ @Override
+ public double getPreco() {
+     return this.preco;
+ }
+
+ @Override
+ public int compareTo(Livro_fisico outro) {
+     return this.titulo.compareTo(outro.titulo);
+ }
+
+ @Override
+ public String toString() {
+     return "Livro Físico: " + titulo + ", ISBN: " + isbn + ", Preço: " + preco+ " "+autores;
+ }
+}
+
+//orcamento
+
+
+class Orcamento implements Compra {
+ private LinkedList<Livro> pedido;
+
+ public Orcamento() {
+     this.pedido = new LinkedList<>();
+ }
+
+ public void add_Livro_fisicoOrc(Livro_fisico livro) {
+     this.pedido.add(livro);
+ }
+ public void add_LivroEbookOrc(Ebook Ebook) {
+     this.pedido.add(Ebook);
+ }
+
+ @Override
+ public double calcular_Preco() {
+     double total = 0;
+     for (Livro livro : this.pedido) {
+         total += livro.getPreco();
+     }
+     return total;
+ }
+
+ public void mostrar_Pedidos() {
+     for (Livro livro : this.pedido) {
+         System.out.println(livro);
+     }
+     System.out.println("Total do pedido: R$" + calcular_Preco());
+ }
+}
