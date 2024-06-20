@@ -1,56 +1,51 @@
-package classes;
-
-// Luiz Guilherme RGA:202319070351
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-//main
-public class Main {
- public static void main(String[] args) {
-	 
+
+public class MyClass {
+    public static void main(String args[]) {
      // Add autores
-     Autor autor1 = new Autor("Calupsito", "calups", "RJ");
-     Autor autor2 = new Autor("John Smith", "jhon.smith@example.com", "Academia de Letras");
-     Autor autor3 = new Autor("Jane Doe", "jane.doe@example.com", "UFMT");
-     Autor autor4 = new Autor("MacLove", "MacLove@example.com", "Fundação das Histórias");
-     Autor autor5 = new Autor("Akira Toriama", "AkiraDBZ@example.com", "Associação Cultural Japonesa");
-     Autor autor6 = new Autor("Isabel Olvieira", "isabel.oliveira@example.com", "Escola de Narrativa");
-     Autor autor7 = new Autor("Patricia Lima", "patricia.lima@example.com", "USP");
-     Autor autor8 = new Autor("Clives Staples", "clivestaples%", "Centro de Literatura Contemporânea");
-     Autor autor9 = new Autor("Marta Costa", "marta.costa@example.com", "Instituto de Poesia");
-     Autor autor10 = new Autor("Machado de Assis", "machado.assis@example.com", "Instituto de Língua Portuguesa");
-     Autor autor11 = new Autor("Jane Silva", "jane.silva@example.com", "UFMG");
-     Autor autor12 = new Autor("Kevin Bhor", "kevin.bhor@example.com", "ITA");
-     
+	Autor autor1 = new Autor("Luiz Borges", "luiz.borges@example.com", "UFRJ");
+	Autor autor2 = new Autor("Maria Clara", "maria.clara@example.com", "PUC-SP");
+	Autor autor3 = new Autor("Carlos Almeida", "carlos.almeida@example.com", "UNESP");
+	Autor autor4 = new Autor("Ana Paula", "ana.paula@example.com", "UFPE");
+	Autor autor5 = new Autor("Roberto Silva", "roberto.silva@example.com", "UFMG");
+	Autor autor6 = new Autor("Julia Santos", "julia.santos@example.com", "UFRGS");
+	Autor autor7 = new Autor("Fernando Costa", "fernando.costa@example.com", "UFC");
+	Autor autor8 = new Autor("Mariana Oliveira", "mariana.oliveira@example.com", "USP");
+	Autor autor9 = new Autor("Ricardo Pereira", "ricardo.pereira@example.com", "UFPR");
+	Autor autor10 = new Autor("Patricia Lima", "patricia.lima@example.com", "UFG");
+	Autor autor11 = new Autor("Gabriel Mendes", "gabriel.mendes@example.com", "UFSC");
+	Autor autor12 = new Autor("Helena Souza", "helena.souza@example.com", "UNIFESP");
+
 
      // Add livro físico e autor
-     Livro_fisico Livro_fisico1 = new Livro_fisico("Fquerido", "ISBN10", 15.00);
-     Livro_fisico Livro_fisico2 = new Livro_fisico("Harry Potter", "9780439554930", 160.00);
-     Livro_fisico Livro_fisico3 = new Livro_fisico("Dom Casmuro", "9786586490084", 94.90);
-     Livro_fisico Livro_fisico4 = new Livro_fisico("Liberdade do Tempo", "46485487923", 47.80);
-     Livro_fisico Livro_fisico5 = new Livro_fisico("Imperio Romano: A Queda", "60485488024", 50.80);
-     Livro_fisico Livro_fisico6 = new Livro_fisico("O Guerreiro Samurai", "43012487923", 60.00);
+     	Livro_fisico livroFisico1 = new Livro_fisico("A Jornada", "ISBN001", 45.00);
+        Livro_fisico livroFisico2 = new Livro_fisico("O Resgate", "ISBN002", 55.00);
+        Livro_fisico livroFisico3 = new Livro_fisico("O Segredo", "ISBN003", 65.00);
+        Livro_fisico livroFisico4 = new Livro_fisico("A Missão", "ISBN004", 75.00);
+        Livro_fisico livroFisico5 = new Livro_fisico("A Descoberta", "ISBN005", 85.00);
+        Livro_fisico livroFisico6 = new Livro_fisico("O Enigma", "ISBN006", 95.00);
      
-     
-     Livro_fisico1.add_Autor(autor8);
-     Livro_fisico2.add_Autor(autor1);
-     Livro_fisico3.add_Autor(autor10);
-     Livro_fisico4.add_Autor(autor8);
-     Livro_fisico5.add_Autor(autor4);
-     Livro_fisico6.add_Autor(autor5);
+     livroFisico1.add_Autor(autor8);
+     livroFisico2.add_Autor(autor1);
+     livroFisico3.add_Autor(autor10);
+     livroFisico4.add_Autor(autor8);
+     livroFisico5.add_Autor(autor4);
+     livroFisico6.add_Autor(autor5);
      
      
      
      // Add Ebook e autor
-     Ebook ebook1 = new Ebook("Egrilo", "ISBNE20", 30.35);   
-     Ebook ebook2 = new Ebook("Construa Relacionamento Mais Fortes ", "98742312126", 25.00);
-     Ebook ebook3 = new Ebook("Descubra o Seu Potencial", "4364872987", 30.50);
-     Ebook ebook4 = new Ebook("Aprendendo a fazer Programar com o C#", "7064872126", 40.09);
-     Ebook ebook5 = new Ebook("Cultura Brasileira", "2064872120", 15.00);
-     Ebook ebook6 = new Ebook("Domina a Lógica da Vida", "7764872195", 22.60);
+      	Ebook ebook1 = new Ebook("Aventura Digital", "EISBN001", 20.00);
+        Ebook ebook2 = new Ebook("Tecnologia e Futuro", "EISBN002", 30.00);
+        Ebook ebook3 = new Ebook("Desvendando a Programação", "EISBN003", 40.00);
+        Ebook ebook4 = new Ebook("O Universo da IA", "EISBN004", 50.00);
+        Ebook ebook5 = new Ebook("Redes e Sistemas", "EISBN005", 60.00);
+        Ebook ebook6 = new Ebook("Segurança da Informação", "EISBN006", 70.00);
      
      
      
@@ -63,12 +58,12 @@ public class Main {
 
      // Add biblioteca e livros
      Biblioteca biblioteca = new Biblioteca();
-     biblioteca.add_Livro_fisico(Livro_fisico1);
-     biblioteca.add_Livro_fisico(Livro_fisico2);
-     biblioteca.add_Livro_fisico(Livro_fisico3);
-     biblioteca.add_Livro_fisico(Livro_fisico4);
-     biblioteca.add_Livro_fisico(Livro_fisico5);
-     biblioteca.add_Livro_fisico(Livro_fisico6);
+     biblioteca.add_Livro_fisico(livroFisico1);
+     biblioteca.add_Livro_fisico(livroFisico2);
+     biblioteca.add_Livro_fisico(livroFisico3);
+     biblioteca.add_Livro_fisico(livroFisico4);
+     biblioteca.add_Livro_fisico(livroFisico5);
+     biblioteca.add_Livro_fisico(livroFisico6);
      
      biblioteca.add_Livro_Ebook(ebook1);
      biblioteca.add_Livro_Ebook(ebook2);
@@ -78,14 +73,14 @@ public class Main {
      biblioteca.add_Livro_Ebook(ebook6);
 
      // Emprestando e devolvendo livros
-     biblioteca.emprestarLivro_fisico(Livro_fisico1);
-     biblioteca.emprestarLivro_fisico(Livro_fisico2);
-     biblioteca.emprestarLivro_fisico(Livro_fisico3);
+     biblioteca.emprestarLivro_fisico(livroFisico1);
+     biblioteca.emprestarLivro_fisico(livroFisico2);
+     biblioteca.emprestarLivro_fisico(livroFisico3);
      
      System.out.println("EMPRESTADOS >>>>");
      biblioteca.mostrar_LivrosEmprestados();
      System.out.println("\nLIVRO DEVOLVIDO >>>>");
-     biblioteca.devolverLivro(Livro_fisico1);
+     biblioteca.devolverLivro(livroFisico1);
 
      System.out.println("\nTODOS LIVROS FISICOS >>>>");
      
@@ -98,15 +93,16 @@ public class Main {
 
      // Add orçamentos e add pedidos
      Orcamento orcamento = new Orcamento();
-     orcamento.add_Livro_fisicoOrc(Livro_fisico1);
+     orcamento.add_Livro_fisicoOrc(livroFisico1);
      orcamento.add_LivroEbookOrc(ebook1);
      orcamento.add_LivroEbookOrc(ebook4);
      
      // Pedidos de compra
      System.out.println("\nORÇAMENTO >>>>\n");
      orcamento.mostrar_Pedidos();
- }
+    }
 }
+
 
 //Interfaces
 
